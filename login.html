@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}تسجيل الدخول - نظام حلمي الإداري{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">تسجيل الدخول إلى لوحة التحكم</h3>
+                </div>
+                <div class="card-body p-4">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="إغلاق"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <form method="POST" action="{{ url_for(\'auth.login\') }}">
+                        {{ form.hidden_tag() if form and form.hidden_tag }}
+                        <div class="mb-3">
+                            <label for="username" class="form-label">اسم المستخدم</label>
+                            <input type="text" class="form-control" id="username" name="username" required autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">كلمة المرور</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-block">تسجيل الدخول</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <p class="text-center mt-3"><a href="{{ url_for(\'main.index\') }}">العودة إلى الموقع الرئيسي</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
