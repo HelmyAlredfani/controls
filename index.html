@@ -1,27 +1,412 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>نظام إدارة نتائج مدارس الردفاني</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام حلمي التعليمي</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content-wrap {
+            flex: 1;
+        }
+        .beneficiary-icon img {
+            width: 80px; 
+            height: 80px; 
+            margin-bottom: 10px;
+        }
+        .beneficiary-icon p {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        #advertisement-section {
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        #stats-section .stat-item {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #stats-section .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff; 
+        }
+        #stats-section .stat-text {
+            font-size: 1.1rem;
+            color: #6c757d; 
+        }
+        #related-links-section .card {
+            margin-bottom: 20px;
+        }
+        #related-links-section .card-title {
+            font-weight: bold;
+        }
+        #related-links-section .helmy-logo {
+            max-width: 150px; 
+            margin-bottom: 15px;
+        }
+        #testimonials-section .testimonial-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        #testimonials-section .testimonial-quote {
+            font-style: italic;
+            color: #555;
+        }
+        #testimonials-section .testimonial-author {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 40px 0;
+            margin-top: auto; /* Push footer to the bottom */
+        }
+        footer a {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        footer .footer-logo {
+            max-height: 60px; /* Adjust as needed */
+            margin-bottom: 15px;
+        }
+        footer .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: #adb5bd;
+        }
+        footer .social-icons a:hover {
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-  <div class="login-container">
-    <h1>تسجيل الدخول</h1>
-    <form id="loginForm">
-      <div class="form-group">
-        <label for="username">اسم المستخدم</label>
-        <input type="text" id="username" required>
-      </div>
-      <div class="form-group">
-        <label for="password">كلمة المرور</label>
-        <input type="password" id="password" required>
-      </div>
-      <button type="submit">تسجيل الدخول</button>
-      <p id="errorMessage" class="error"></p>
-    </form>
-  </div>
-  <script src="js/script.js"></script>
+    <div class="content-wrap">
+        <!-- 1. الشريط العلوي (Header) -->
+        <header class="bg-light p-3 border-bottom">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="https://www.moe.gov.sa/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                        <img src="img/stacker_helmy.png" alt="شعار نظام حلمي" width="150" class="me-3">
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="#" class="nav-link px-2 link-secondary">الرئيسية</a></li>
+                        <li><a href="#" class="nav-link px-2 link-dark">عن حلمي</a></li>
+                        <li><a href="#" class="nav-link px-2 link-dark">المستفيدون</a></li>
+                        <li><a href="#" class="nav-link px-2 link-dark">تواصل معنا</a></li>
+                    </ul>
+
+                    <div class="text-end">
+                        <button type="button" class="btn btn-primary">تسجيل الدخول</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. شريط العرض (Slider) -->
+        <section id="slider-section" class="py-5">
+            <div class="container">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="الشريحة الأولى"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="الشريحة الثانية"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/slider_image_1.jpg" class="d-block w-100" alt="خدمات تعليمية حديثة">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>خدمات تعليمية مبتكرة</h5>
+                                <p>نظام حلمي يوفر أحدث التقنيات لدعم العملية التعليمية.</p>>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slider_image_2.jpg" class="d-block w-100" alt="بيئة تعليمية محفزة">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>بيئة تعليمية تفاعلية</h5>
+                                <p>تشجيع التعاون والابتكار بين الطلاب والمعلمين.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">السابق</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">التالي</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. قسم المستفيدون -->
+        <section id="beneficiaries-section" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">المستفيدون من النظام</h2>
+                <div class="row text-center">
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="beneficiary-icon">
+                            <img src="img/mortarboard_1940611.png" alt="أيقونة الطالب">
+                            <p>الطالب/ـة</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="beneficiary-icon">
+                            <img src="img/parent_icon.png" alt="أيقونة ولي الأمر">
+                            <p>ولي/ـة الأمر</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="beneficiary-icon">
+                            <img src="img/manager_icon.png" alt="أيقونة مدير المدرسة">
+                            <p>مدير/ـة المدرسة</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="beneficiary-icon">
+                            <img src="img/teacher_icon.png" alt="أيقونة المعلم">
+                            <p>المعلم/ـة</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="beneficiary-icon">
+                            <img src="img/supervisor_icon.png" alt="أيقونة المشرف التربوي">
+                            <p>المشرف/ـة التربوي</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="beneficiary-icon">
+                            <img src="img/ministry_employee_icon.png" alt="أيقونة موظف الوزارة">
+                            <p>موظف/ـة الوزارة</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="beneficiary-icon">
+                            <img src="img/education_dept_employee_icon.png" alt="أيقونة موظف إدارة التعليم">
+                            <p>موظف/ـة إدارة التعليم</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. إعلانات (Advertisement Section) -->
+        <section id="advertisement-section" class="py-3">
+            <div class="container">
+                <p class="mb-0">تابعونا لمعرفة آخر الأخبار والمبادرات التعليمية الهامة!</p>
+            </div>
+        </section>
+
+        <!-- 5. نور في أرقام (إحصائيات) -->
+        <section id="stats-section" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">نظام حلمي في أرقام</h2>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 stat-item">
+                        <div class="stat-number" data-count="400">0</div>
+                        <div class="stat-text">+400 خدمة رئيسية</div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 stat-item">
+                        <div class="stat-number" data-count="500000">0</div>
+                        <div class="stat-text">+500 ألف معلم/ـة</div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 stat-item">
+                        <div class="stat-number" data-count="6000000">0</div>
+                        <div class="stat-text">+6 ملايين طالب/ـة</div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 stat-item">
+                        <div class="stat-number" data-count="11000000">0</div>
+                        <div class="stat-text">+11 مليون مستخدم</div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 stat-item">
+                        <div class="stat-number" data-count="20">0</div>
+                        <div class="stat-text">+20 تكامل مع جهات خارجية</div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 stat-item">
+                        <div class="stat-number" data-count="67">0</div>
+                        <div class="stat-text">+67 نظام فرعي</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. روابط ذات صلة -->
+        <section id="related-links-section" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">روابط ذات صلة</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <img src="/home/ubuntu/upload/stacker helmy.png" alt="شعار حلمي الردفاني" class="img-fluid helmy-logo mx-auto">
+                                <h5 class="card-title">موقع حلمي الردفاني</h5>
+                                <a href="#" class="btn btn-outline-primary mt-auto">زيارة الموقع</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <i class="fas fa-link fa-3x text-primary mb-3 mx-auto"></i>
+                                <h5 class="card-title">نظام تواصل</h5>
+                                <a href="#" class="btn btn-outline-primary mt-auto">زيارة النظام</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <i class="fas fa-school fa-3x text-primary mb-3 mx-auto"></i>
+                                <h5 class="card-title">منصة مدرستي</h5>
+                                <a href="#" class="btn btn-outline-primary mt-auto">زيارة المنصة</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <i class="fas fa-graduation-cap fa-3x text-primary mb-3 mx-auto"></i>
+                                <h5 class="card-title">منصة نتيجتي</h5>
+                                <a href="#" class="btn btn-outline-primary mt-auto">زيارة المنصة</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. قسم "ماذا قالوا عن حلمي؟" -->
+        <section id="testimonials-section" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">ماذا قالوا عن نظام حلمي؟</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="testimonial-card">
+                            <p class="testimonial-quote">"نظام حلمي ساهم بشكل كبير في تسهيل متابعة أبنائي دراسياً ومعرفة مستواهم أولاً بأول. شكراً للقائمين على هذا النظام الرائع."</p>
+                            <p class="testimonial-author">- ولي أمر طالب</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="testimonial-card">
+                            <p class="testimonial-quote">"كطالب، أجد نظام حلمي سهل الاستخدام ويوفر لي كل ما أحتاجه من معلومات حول واجباتي وجدولي الدراسي ونتائجي. إنه نظام مفيد جداً."</p>
+                            <p class="testimonial-author">- طالب في المرحلة الثانوية</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="testimonial-card">
+                            <p class="testimonial-quote">"بصفتي معلم، أرى أن نظام حلمي قد أحدث نقلة نوعية في إدارة الفصل الدراسي والتواصل مع أولياء الأمور ورصد الدرجات بكفاءة عالية."</p>
+                            <p class="testimonial-author">- معلم لغة عربية</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="testimonial-card">
+                            <p class="testimonial-quote">"نظام حلمي يقدم لنا كإداريين أدوات قوية لمتابعة سير العملية التعليمية واستخراج التقارير اللازمة لاتخاذ القرارات المناسبة."</p>
+                            <p class="testimonial-author">- مدير مدرسة</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-success btn-lg">شاركنا تجربتك مع نظام حلمي</a>
+                </div>
+            </div>
+        </section>
+    </div> <!-- End content-wrap -->
+
+    <!-- 8. تذييل الصفحة (Footer) -->
+    <footer class="text-center text-lg-start">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">روابط مهمة</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!">تواصل معنا</a></li>
+                        <li><a href="#!">سياسة الخصوصية</a></li>
+                        <li><a href="#!">اتفاقية مستوى الخدمة</a></li>
+                        <li><a href="#!">قيم تجربتك الرقمية</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">شعارات</h5>
+                    <div class="d-flex justify-content-center justify-content-lg-start align-items-center">
+                       <img src="img/stacker_helmy.png" alt="شعار نظام حلمي" class="footer-logo img-fluid me-2">
+                       <img src="img/stacker_helmy.png" alt="شعار نظام حلمي إضافي" class="footer-logo img-fluid">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">تابعنا على</h5>
+                    <div class="social-icons">
+                        <a href="#!" role="button"><i class="fab fa-youtube"></i></a>
+                        <a href="#!" role="button"><i class="fab fa-instagram"></i></a>
+                        <a href="#!" role="button"><i class="fab fa-twitter"></i></a>
+                        <a href="#!" role="button"><i class="fab fa-snapchat-ghost"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2025 نظام حلمي التعليمي. جميع الحقوق محفوظة.
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script>
+        // Animated counter for stats section
+        $(document).ready(function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        $(entry.target).find(".stat-number").each(function () {
+                            var $this = $(this);
+                            if (!$this.hasClass("counted")) {
+                                $this.addClass("counted");
+                                $this.prop("Counter",0).animate({
+                                    Counter: $this.data("count")
+                                }, {
+                                    duration: 3000,
+                                    easing: "swing",
+                                    step: function (now) {
+                                        $this.text(Math.ceil(now).toLocaleString("ar-EG"));
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            }, { threshold: [0.1] });
+
+            $("#stats-section").each(function() {
+                observer.observe(this);
+            });
+        });
+    </script>
 </body>
 </html>
